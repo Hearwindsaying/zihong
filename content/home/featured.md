@@ -10,7 +10,7 @@ headless: true
 weight: 80
 
 title: Publications
-subtitle: ""
+subtitle: "Triple Sphere"
 
 content:
   # Page type to display. E.g. post, talk, publication...
