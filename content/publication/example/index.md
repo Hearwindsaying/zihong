@@ -1,23 +1,23 @@
 ---
-title: "An example conference paper"
+title: "Spherical Light Integration over Spherical Caps via Spherical Harmonics"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
-- Robert Ford
+- Li-Yi Wei
 
 # Author notes (optional)
-author_notes:
-- "Equal contribution"
-- "Equal contribution"
+#author_notes:
+#- "Equal contribution"
+#- "Equal contribution"
 
-date: "2013-07-01T00:00:00Z"
-doi: ""
+date: "2020-12-04T00:00:00Z"
+doi: "https://doi.org/10.1145/3410700.3425427"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2020-12-04T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -26,13 +26,13 @@ publishDate: "2017-01-01T00:00:00Z"
 publication_types: ["1"]
 
 # Publication name and optional abbreviated publication name.
-publication: In *Wowchemy Conference*
-publication_short: In *ICW*
+publication: In *SIGGRAPH Asia 2020 Technical Communications*
+publication_short: In *SA' 20*
 
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
+abstract: Spherical area light sources are widely used in synthetic rendering. However, traditional Monte Carlo methods can require an excessive number of samples for sufficient accuracy. We propose a Spherical Harmonics (SH) based method to provide a trade-off between performance and accuracy. Our key idea is an analytical integration of SH over spherical caps. The SH integration is first decomposed into a weighted sum of Zonal Harmonics (ZH) integration, which could be evaluated using recurrence formulae. The resulting integration could then be used for rendering spherical area lights efficiently, saving 50% light samples at best while maintaining competitive accuracy. Our method can easily fit into an existing SH based rendering framework to support near-field sphere lighting.
 
 # Summary. An optional shortened abstract.
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+summary: We present triple sphere, a method to integrate spherical lights over spherical caps via spherical harmonics for rendering applications.
 
 tags: []
 
