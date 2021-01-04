@@ -14,7 +14,7 @@ date: "2020-09-01T00:00:00Z"
 doi: "10.1145/3410700.3425427"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2018-01-01T00:00:00Z"
+publishDate: "2020-09-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -41,21 +41,21 @@ featured: true
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: ''
-url_code: ''
+url_pdf: 'https://hal.archives-ouvertes.fr/hal-02950829/document'
+url_code: 'https://github.com/Hearwindsaying/TripleSphere/'
 url_dataset: ''
 url_poster: ''
-url_project: ''
+url_project: 'https://hearwindsaying.github.io/sss-siga20/'
 url_slides: ''
 url_source: ''
 url_video: ''
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-image:
-  caption: "Primal Graphs"
-  focal_point: ""
-  preview_only: false
+#image:
+#  caption: "Primal Graphs"
+#  focal_point: ""
+#  preview_only: false
 
 # Associated Projects (optional).
 #   Associate this publication with one or more of your projects.
