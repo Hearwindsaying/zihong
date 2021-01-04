@@ -2,6 +2,7 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "Spherical Light Integration over Spherical Caps via Spherical Harmonics"
+subtitle: "Triple Sphere"
 authors: ["admin",Li-Yi Wei]
 date: 2020-12-04T21:00:23+08:00
 doi: "10.1145/3410700.3425427"
@@ -17,7 +18,7 @@ publication_types: ["1"]
 
 # Publication name and optional abbreviated publication name.
 publication: "In *SIGGRAPH Asia 2020 Technical Communications*"
-publication_short: "In *SA' 20*"
+publication_short: ""
 
 abstract: "Spherical area light sources are widely used in synthetic rendering. However, traditional Monte Carlo methods can require an excessive number of samples for sufficient accuracy. We propose a Spherical Harmonics (SH) based method to provide a trade-off between performance and accuracy. Our key idea is an analytical integration of SH over spherical caps. The SH integration is first decomposed into a weighted sum of Zonal Harmonics (ZH) integration, which could be evaluated using recurrence formulae. The resulting integration could then be used for rendering spherical area lights efficiently, saving 50% light samples at best while maintaining competitive accuracy. Our method can easily fit into an existing SH based rendering framework to support near-field sphere lighting."
 
