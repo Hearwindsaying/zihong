@@ -14,11 +14,12 @@ image:
   caption: Rendering of Living-Room (Benedikt Bitterli's Resources) by Colvillea
   focal_point: Smart
 
-#links:
-#- icon: twitter
-#  icon_pack: fab
-#  name: Follow
-#  url: https://twitter.com/georgecushen
+links:
+- icon: github
+  icon_pack: fab
+  name: Code
+  url: https://github.com/Hearwindsaying/Colvillea
+
 url_code: ""
 url_pdf: ""
 url_slides: ""

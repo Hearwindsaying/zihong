@@ -12,7 +12,7 @@ date: "2019-03-10T00:00:00Z"
 external_link: ""
 
 image:
-  caption: Rendering of Living-Room (Benedikt Bitterli's Resources) by Colvillea
+  caption: Screenshot
   focal_point: Smart
 
 links:
@@ -33,4 +33,7 @@ url_video: ""
 #slides: example
 ---
 
-aaa
+### Summary
+A simple photoviewer written for OOP course using C++/WinRT deployed at Universal Windows Platform.
+Common file management operations like copy, paste, remove etc. are supported.
+Standard C++17 and XAML language are used for the project. Several optimization techniques are employed to provide the user with a smooth interaction when previewing large image files.
