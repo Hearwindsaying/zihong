@@ -6,7 +6,7 @@ Standard C++17 and XAML language are used for the project. Several optimization 
 authors: []
 tags: []
 categories: []
-date: 2019-3-10T17:14:17+08:00
+date: "2019-03-10T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""

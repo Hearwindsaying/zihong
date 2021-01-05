@@ -5,7 +5,7 @@ tags:
 - Ray Tracing
 - GPU
 - Physically Based Rendering
-date: "2018-07-15T00:00:00Z"
+date: "2020-07-15T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
@@ -32,8 +32,10 @@ url_video: ""
 #slides: example
 ---
 
+<!--
 # Colvillea
 ![Dining-room](https://github.com/Hearwindsaying/Colvillea/blob/master/examples/Gallery/dining-room_interactive.jpg)
+-->
 
 ## Overview
 **Colvillea** is a physically based global illumination renderer running on GPU. It relies on [NVIDIA's OptiX](https://developer.nvidia.com/optix) to achieve parallelism by leveraging GPU resources, resulting in high performance ray tracing rendering.

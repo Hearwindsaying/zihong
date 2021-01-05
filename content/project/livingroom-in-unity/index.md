@@ -11,7 +11,7 @@ tags:
  - Prebaked Ray Tracing
  - Digital Art
 categories: []
-date: 2019-012-05T00:00:00+08:00
+date: "2019-11-01T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
