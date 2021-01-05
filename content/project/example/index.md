@@ -1,15 +1,17 @@
 ---
-title: Example Project
-summary: An example of using the in-built project page.
+title: Colvillea
+summary: A Physically Based GPU Ray Tracer
 tags:
-- Deep Learning
-date: "2016-04-27T00:00:00Z"
+- Ray Tracing
+- GPU
+- Physically Based Rendering
+date: "2018-07-15T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
 image:
-  caption: Photo by rawpixel on Unsplash
+  caption: Rendering of Living-Room (Benedikt Bitterli's Resources) by Colvillea
   focal_point: Smart
 
 links:
@@ -30,12 +32,73 @@ url_video: ""
 slides: example
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
+# Colvillea
+![Dining-room](https://github.com/Hearwindsaying/Colvillea/blob/master/examples/Gallery/dining-room_interactive.jpg)
 
-Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.
+## Overview
+**Colvillea** is a physically based global illumination renderer running on GPU. It relies on [NVIDIA's OptiX](https://developer.nvidia.com/optix) to achieve parallelism by leveraging GPU resources, resulting in high performance ray tracing rendering.
 
-Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.
+## Motivation
+Here are some motivations and objectives of building Colvillea:
+ - Ease for implementation of ray tracer in GPU. Writing a GPU renderer from scratch could be of great difficulty and hard to get optimal performance. Debugging is also a pain in the neck. There might be a way out for all these problems thanks to OptiX.
+ - Deliver RTX hardware acceleration for faster rendering. OptiX is one of the three ways for enabling RTCores so as to achieve higher ray tracing efficiency when possible.
+ - Potential for implementation of some state-of-the-art rendering technologies. This is a personal project written during my learning of computer graphics. In the end, it should be both easy and convenient to extend to adding more features. It's also interesting to try out rendering algorithms in GPU to explore a better efficiency. 
 
-Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.
+## Features
+### Light Transport
+ - Direct Lighting
+ - Unidirectional Path Tracing
 
-Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.
+### Reflection Models
+ - Lambertian BRDF
+ - Specular BRDF (Perfect Mirror)
+ - Specular BSDF (Perfect Glass)
+ - Ashikhmin-Shirley BRDF (Rough Plastic)
+ - GGX Microfacet BRDF (Rough Conductor)
+ - GGX Microfacet BSDF (Rough Dielectric)
+ - Dielectric-Couductor Two Layered BSDF
+
+### Sampler
+ - Independent Sampler
+ - Halton QMC Sampler (Fast Random Permutation)    
+ - Sobol QMC Sampler
+
+### Filter (Progressive)
+ - Box filter
+ - Gaussian filter
+
+### Rendering Mode
+ - Progressive Rendering
+
+### Light Source Models
+ - Point Light
+ - Quad Light (Spherical Rectangular Sampling)
+ - Image-Based Lighting (HDRI Probe)
+
+### Camera 
+ - Pinhole Camera
+ - Depth of Field
+
+### Geometry
+ - Triangle Mesh (Wavefront OBJ)
+
+### Miscellaneous
+ - LDR/HDR Image I/O with Gamma Correction
+ - Interactive rendering with editing scene
+
+## Work In Progress
+ - Upgrade to OptiX 7.1
+ - Refactor the renderer architecture: wavefront ray tracing
+
+## Build
+Building **Colvillea** requires OptiX 6.0 (6.5 is preferred) and CUDA 9.0 or above installed. For graphics driver on Windows platform, driver version 436.02 or later is required. All NVIDIA GPUs of Compute Capability 5.0 (Maxwell) or higher are supported but those with Turing architecture is required to access RTX hardware acceleration.
+
+**Colvillea** currently builds on Windows only using [CMake](http://www.cmake.org/download/) and could be built using MSVC successfully. It's recommeded that create a separte directory in the same level folder as src folder. Note that you are required to use VS2015 or above targeted for 64-bit as CUDA_HOST_COMPILER in configuration step.
+For better layout to support interactive rendering, please put imgui.ini file to the same directory as colvillea.vcxproj.
+
+## References
+[Nvidia OptiX](https://developer.nvidia.com/optix)
+
+[PBRT](https://github.com/mmp/pbrt-v3)
+
+[Mitsuba](https://github.com/mitsuba-renderer/mitsuba)
