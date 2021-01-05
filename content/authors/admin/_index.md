@@ -69,5 +69,5 @@ highlight_name: true
 I am a software engineer keen on computer graphics, especially rendering.
 Currently I am an undergrad at South China Agricultural University.
 
-Previously I worked on analytical area light integration for interests, advised by Dr. Li-Yi Wei.
+Previously I worked on analytical area light integration for interests, advised by Dr. [Li-Yi Wei](https://liyiwei.org/).
 

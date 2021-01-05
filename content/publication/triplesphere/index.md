@@ -72,5 +72,5 @@ projects: []
 slides: ""
 ---
 
-Summary
-
+### Summary
+We present triple sphere, a method to integrate spherical lights over spherical caps via spherical harmonics for rendering applications.
