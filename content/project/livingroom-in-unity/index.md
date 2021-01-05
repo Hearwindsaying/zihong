@@ -1,7 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Livingroom in Unity"
+title: "Living-Room in Unity"
 summary: "A course project work for Virtual Reality which explores Lightmapping techniques with the newest High-Definition Rendering Pipeline in Unity. 
 With prebaked global illumination using ray tracing methodology, it
 brings the Living-Room scene to the word-class game engine."
@@ -44,3 +44,4 @@ url_video: ""
 #   Otherwise, set `slides = ""`.
 slides: ""
 ---
+aaa

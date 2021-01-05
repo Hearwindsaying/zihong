@@ -1,6 +1,4 @@
 ---
-# Documentation: https://wowchemy.com/docs/managing-content/
-
 title: "Simple Photo Viewer"
 summary: "A simple photoviewer written for OOP course using C++/WinRT deployed at Universal Windows Platform.
 Common file management operations like copy, paste, remove etc. are supported.
@@ -13,22 +11,15 @@ date: 2019-3-10T17:14:17+08:00
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  caption: ""
-  focal_point: ""
-  preview_only: false
+  caption: Rendering of Living-Room (Benedikt Bitterli's Resources) by Colvillea
+  focal_point: Smart
 
-# Custom links (optional).
-#   Uncomment and edit lines below to show custom links.
-# links:
-# - name: Follow
-#   url: https://twitter.com
-#   icon_pack: fab
-#   icon: twitter
-
+links:
+- icon: twitter
+  icon_pack: fab
+  name: Follow
+  url: https://twitter.com/georgecushen
 url_code: ""
 url_pdf: ""
 url_slides: ""
@@ -39,5 +30,7 @@ url_video: ""
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides: ""
+slides: example
 ---
+
+aaa
