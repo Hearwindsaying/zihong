@@ -32,8 +32,3 @@ url_video: ""
 #   Otherwise, set `slides = ""`.
 #slides: example
 ---
-
-### Summary
-A simple photoviewer written for OOP course using C++/WinRT deployed at Universal Windows Platform.
-Common file management operations like copy, paste, remove etc. are supported.
-Standard C++17 and XAML language are used for the project. Several optimization techniques are employed to provide the user with a smooth interaction when previewing large image files.
