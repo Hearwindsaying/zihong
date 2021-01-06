@@ -19,8 +19,8 @@ role: Have fun. Be awesome.
 # Interests to show in About widget
 interests:
 - Physically Based Rendering
-- Light Transport
 - Area Light Integration
+- Appearance Modeling
 
 # Education to show in About widget
 education:
@@ -63,11 +63,13 @@ email: ""
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 
-#{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
 ---
 
-I am a software engineer keen on computer graphics, especially rendering.
-Currently I am an undergrad at South China Agricultural University.
+I am a senior at South China Agricultural University.
+I am keen on realistic rendering, a way of coding the beauty of nature.
 
-Previously I worked on analytical area light integration for interests, advised by Dr. [Li-Yi Wei](https://liyiwei.org/).
+Previously I worked on analytical area light integration for interests under the supervision of Dr. [Li-Yi Wei](https://liyiwei.org/).
+My research interests involve efficient sampling and integration for rendering application.
 
+{{< icon name="download" pack="fas" >}} Download my
+{{< staticref "media/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.

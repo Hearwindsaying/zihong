@@ -30,7 +30,7 @@ experience:
     date_end: ''
     description: |3-
         * Implement Real-time Area Lighting via LTC
-        * Integrate DirectX 12 backend into in-house renderer
         * Several bug fixes/improvements to offline renderer SDK
+        * [WIP] Integrate DirectX 12 backend into in-house renderer
 
 ---

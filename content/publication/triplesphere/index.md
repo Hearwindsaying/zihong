@@ -46,9 +46,8 @@ url_code: 'https://github.com/Hearwindsaying/TripleSphere/'
 url_dataset: ''
 url_poster: ''
 url_project: 'https://hearwindsaying.github.io/sss-siga20/'
-url_slides: ''
-url_source: ''
-url_video: ''
+url_video: 'https://drive.google.com/file/d/18hFyIKgGvxh1qezzBrkHB85dObINtgMB/view?usp=sharing'
+url_slides: 'https://drive.google.com/file/d/1NAl17lZ5xAkLHjMOC795UMubxmO11mJh/view?usp=sharing'
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
