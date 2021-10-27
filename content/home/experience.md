@@ -22,15 +22,20 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: Rendering Engineer (Intern)
+  - title: Rendering Engineer
     company: 4D ShoeTech
+    company_logo: logo
     company_url: 'https://4dshoetech.com/'
     location: Guangzhou
     date_start: '2020-09-01'
     date_end: ''
-    description: |3-
-        * Implement Real-time Area Lighting via LTC
-        * Several bug fixes/improvements to offline renderer SDK
-        * [WIP] Integrate DirectX 12 backend into in-house renderer
+    description: |4-
+        * Worked on in-house renderer designed for footware manufacturing. Implemented Eric Heitz's Linearly Transform Cosine, a technique for realtime shading polygonal area lights.
+
+        * Several bug fixes to offline renderer SDK.
+        
+        * Integrated a brand-new DirectX 12 renderer backend to the existing RHI (Render Harware Interface), being compatible to the current rendering pipeline and APIs. 
+
+        * Implemented a new physically based reference ray tracer with high visual fidelity based on DirectX 12 backend and DXR (DirectX Ray Tracing) API.
 
 ---

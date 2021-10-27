@@ -12,6 +12,7 @@ external_link: ""
 
 image:
   caption: Rendering of Living-Room (Benedikt Bitterli's Resources) by Colvillea
+  placement: 2
   focal_point: Smart
 
 links:
