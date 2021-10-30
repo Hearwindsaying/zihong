@@ -14,3 +14,106 @@ table {
     word-wrap: normal;
     word-break: normal;
     }
+
+
+
+    .comparison-slider {
+        height: 50vh;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch; 
+        position: relative;
+        width: 100%;
+      }
+      
+      .comparison-slider .comparison-before,
+      .comparison-slider .comparison-after {
+        height: 100%;
+        left: 0;
+        margin: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+      }
+      
+      .comparison-slider .comparison-before img,
+      .comparison-slider .comparison-after img {
+        height: 100%;
+        object-fit: cover;
+        object-position: left center;
+        position: absolute;
+        width: 100%;
+      }
+      
+      .comparison-slider .comparison-before {
+        width: 100%;
+        z-index: 1;
+      }
+      
+      .comparison-slider .comparison-before .comparison-label {
+        right: .8rem;
+      }
+      
+      .comparison-slider .comparison-after {
+        max-width: 100%;
+        min-width: 0;
+        z-index: 2;
+      }
+      
+      .comparison-slider .comparison-after::before {
+        background: transparent;
+        content: "";
+        cursor: default;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: .8rem;
+        top: 0;
+        z-index: 1;
+      }
+      
+      .comparison-slider .comparison-after::after {
+        background: currentColor;
+        border-radius: 50%;
+        box-shadow: 0 -5px, 0 5px;
+        color: #fff;
+        content: "";
+        height: 3px;
+        pointer-events: none;
+        position: absolute;
+        right: .4rem;
+        top: 50%;
+        transform: translate(50%, -50%);
+        width: 3px;
+      }
+      
+      .comparison-slider .comparison-after .comparison-label {
+        left: .8rem;
+      }
+      
+      .comparison-slider .comparison-resizer {
+        animation: first-run 1.5s 1 ease-in-out;
+        cursor: ew-resize;
+        height: .8rem;
+        left: 0;
+        max-width: 100%;
+        min-width: .8rem;
+        opacity: 0;
+        outline: none;
+        position: relative;
+        resize: horizontal;
+        top: 50%;
+        transform: translateY(-50%) scaleY(30);
+        width: 0;
+      }
+      
+      .comparison-slider .comparison-label {
+        background: rgba(48, 55, 66, .5);
+        bottom: .8rem;
+        color: #fff;
+        padding: .2rem .4rem;
+        position: absolute;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }

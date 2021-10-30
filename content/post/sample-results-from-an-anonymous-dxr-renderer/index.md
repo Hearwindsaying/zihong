@@ -1,7 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Sample Results From an Anonymous Dxr Renderer"
+title: "Sample Results From an Anonymous DXR Renderer"
 subtitle: ""
 summary: ""
 authors: []
@@ -39,7 +39,7 @@ I think I might have run into some issues during the journey and doing some rend
 Well, I have learned ray tracing before and related algorithms will not change if we switch to another way of implementation -- no matter I write in plain C/old school C++/modern C++/CUDA/HLSL, the math and physics behind the rendering are essentially the same.
 However, the coding process could suffer:
 
-{{< figure src="1.png" caption="A possible two-sided BRDF adapter implementation in HLSL-2021 (left) and C++11 (right). The C++ code is from Mitsuba 0.5." numbered="true" >}}
+{{< figure src="sneaky.png" caption="A possible two-sided BRDF adapter implementation in HLSL-2021 (left) and C++11 (right). The C++ code is from Mitsuba 0.5." numbered="true" >}}
 
 For example, it is useful to support two-sided shading for the ray tracer.
 Since common 3d modeling packages such as Maya and Blender usually enable two-sided shading by default, artist could ignore the orientation of the surface during the modeling.
@@ -70,13 +70,21 @@ So I can't wait to quickly implement all these simple components in ray tracing 
 
 Here is how it looks like from the renderer:
 
-{{< figure src="0.png" caption="The chessboard scene." numbered="true" >}}
+{{< figure src="4.png" caption="The chessboard scene rendered with 8192spp in 8min45s. Runs in 18fps or 55 ms for 1 iteration (1spp) on a RTX 2060 (minimum GPU requirements for running DXR API). Scene credits: [https://davzeppelin.gumroad.com/l/QlHKc](https://davzeppelin.gumroad.com/l/QlHKc)." numbered="true" >}}
+
+{{< figure src="7.png" caption="The living room rendered with 8192spp in 19min33s. Runs in 10fps or 100 ms for 1 iteration (1spp) for this scene. Scene credits: [https://www.youtube.com/watch?v=Gn1biEB5PbQ&t=44s](https://www.youtube.com/watch?v=Gn1biEB5PbQ&t=44s)." numbered="true" >}}
+
+I have set Fresnel to 1.0 for specular lobe in Disney BRDF for debugging purpose and just forgetted to turn off before rendering the Chess scene and got a funny bug:
+{{< figure src="stinger.png" caption="An interesting result due to a bug." numbered="true" >}}
+
+Besides its overbrightness, featuring strong specular reflections and blurring out diffuse details, another subtle difference compared to []() is now I cannot tell the opponent's chess pieces from ours! :)
+I like rendering because sometimes I could get these magical images for my bugs (instead of getting crashes and nothing in other applications).
 
 Disney BRDF is used for all materials in the scene and several hidden quadlights are used as light sources.
 I also used Dr. Laurent Belcour's [Screen Space Blue Noise Error Diffusion Sampler with XOR Scrambled Sobol sequence](https://belcour.github.io/blog/research/publication/2021/06/24/sampling_bluenoise_sig21.html) for high quality samples pattern.
 Finally, Intel's OpenImageDenoiser is used for cleaning up noises left in low sample counts.
 
-## Machine Learning Based Denoiser
+## Machine Learning Based Denoiser -- A Saviour
 Path tracing integrator is easy to code, but it still requires tremendous effort to reach a fully converged image without noises.
 There are quite a few denoising algorithms and open source implementations available.
 Check out [Alain Galvan's blog](https://alain.xyz/blog/ray-tracing-denoising) for a good overview of ways to denoise a path tracer.
@@ -88,4 +96,74 @@ OIDN is built and trained with Convolutional Neural Network (CNN).
 Outside the blackbox, it just works like a filter so it could be put into the postprocessing stage.
 Feed the OIDN with noisy ray tracing outputs and auxiliary buffers (albedo, normal etc.) from our AOV outputs, it gives us a noise free result in a short time.
 Well I mean a short time but it still needs some noticable time -- 2s for 2K resolution on a i7-10700K cpu.
+
+This DXR ray tracer is designed to be interactive and progressive, but 2s could really block the main/UI thread and make it irresponsive.
+So I move the denoising pass to the background thread and run it from time to time asynchronously.
+The idea is to progressively accumulate a few samples, say 64 from a well designed Sobol sampler, and run the denoiser in the background.
+Once it is done, show this denoised image in the viewport and keep ray tracing.
+After running for a while, run the denoiser again and update the denoised image.
+This makes sense since we cannot easily spot the difference between denoising a 64spp input and 65spp input, but we do for the 64spp input and 90spp input.
+I find this approach works well in practice, trying to keep CPU and GPU busy and the user's interaction still goes smoothly:
+
+{{< figure src="0.png" caption="A live recording of the chessboard scene showing the progressive refinement of the ray tracer. Either waiting for the image less noiser (raw ray traced) or the image less deviated from the ground truth (denoised)" numbered="true" >}}
+
+Here are some more comparisons (drag the slide in the middle left for comparison):
+
+<div class="comparison-slider">
+  <figure class="comparison-before">
+    <img src="0.png">
+    <div class="comparison-label">100spp Ray Tracing (84.36s)</div>
+  </figure>
+
+  <figure class="comparison-after">
+    <img src="1.png">
+    <div class="comparison-label">100spp Denoised (84.36s)</div>
+    <textarea class="comparison-resizer" readonly></textarea>
+  </figure>
+</div>
+
+<div class="comparison-slider">
+  <figure class="comparison-before">
+    <img src="2.png">
+    <div class="comparison-label">1024spp Ray Tracing (136.30s)</div>
+  </figure>
+
+  <figure class="comparison-after">
+    <img src="3.png">
+    <div class="comparison-label">1024spp Denoised (136.30s)</div>
+    <textarea class="comparison-resizer" readonly></textarea>
+  </figure>
+</div>
+
+{{< figure src="d3.png" caption="Comparisons between ray traced, denoised, referenced images." numbered="true" >}}
+
+And a more easily noticeable verification is using ImageDiff to the ground truth:
+<div class="comparison-slider">
+  <figure class="comparison-before">
+    <img src="d1.png">
+  </figure>
+
+  <figure class="comparison-after">
+    <img src="d2.png">
+    <textarea class="comparison-resizer" readonly></textarea>
+  </figure>
+</div>
+
+
+## Machine Learning Based Denoiser -- A Saviour If With Our Help
+I am kind of appalled by the advertisements of [Intel's OIDN gallery](https://www.openimagedenoise.org/gallery.html) and after trying out myself, it looks like a lifesaver to us!
+Unfortunately, this is not the whole story.
+I cannot just forget all the sophisticated algorithms invented by diligent graphics researchers and solely focus on hoping ML denoiser improve my renderings given some 'arbitrary' inputs.
+For example, if I turn off multiple importance sampling and use light sampling only:
+
+As is shown in the video, weird structural pattern can be seen.
+It is animated since I continuously feed the denoiser with more samples input and it tries very hard to improve the result...
+[](video)
+And with our help to reduce variance at first by using multiple importance sampling:
+[](video)
+
+The roughness is set to be low and we will have a peak specular lobe, in which case light sampling cannot help too much but BSDF sampling does, resulting far fewer noises and the denoiser works pretty well now.
+As pointed out by [Bitterli et al.](https://cs.dartmouth.edu/~wjarosz/publications/bitterli20spatiotemporal.html), currently these denoisers are not able to bring in the features which are not present in input samples.
+So we need to keep finding out new strategies for sampling, image reconstruction etc. to help our denoisers out.
+I suppose this is why though lots of people turn to deep learning recently, there are still appealing research on traditional rendering.
 
