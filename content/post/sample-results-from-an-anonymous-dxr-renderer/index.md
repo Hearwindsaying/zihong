@@ -108,8 +108,6 @@ After running for a while, run the denoiser again and update the denoised image.
 This makes sense since we cannot easily spot the difference between denoising a 64spp input and 65spp input, but we do for the 64spp input and 90spp input.
 I find this approach works well in practice, trying to keep CPU and GPU busy and the user's interaction still goes smoothly:
 
-{{< video src="Chessboard.mp4" controls="yes" caption="A live recording of the chessboard scene showing the progressive refinement of the ray tracer. Either waiting for the image less noiser (raw ray traced) or the image less deviated from the ground truth (denoised)" numbered="true">}}
-
 Here are some more comparisons (drag the slide in the middle left for comparison):
 
 <div class="comparison-slider">
@@ -161,10 +159,10 @@ For example, if I turn off multiple importance sampling and use light sampling o
 
 As is shown in the video, weird structural pattern can be seen.
 It is animated since I continuously feed the denoiser with more samples input and it tries very hard to improve the result...
-{{< video src="mis_disable.mp4" controls="yes" >}}
+
 
 And with our help to reduce variance at first by using multiple importance sampling:
-{{< video src="mis_enable.mp4" controls="yes" >}}
+
 
 The roughness is set to be low and we will have a peak specular lobe, in which case light sampling cannot help too much but BSDF sampling does, resulting far fewer noises and the denoiser works pretty well now.
 As pointed out by [Bitterli et al.](https://cs.dartmouth.edu/~wjarosz/publications/bitterli20spatiotemporal.html), currently these denoisers are not able to bring in the features which are not present in input samples.
