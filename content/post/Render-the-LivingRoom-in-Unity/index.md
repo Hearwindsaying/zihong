@@ -1,9 +1,9 @@
 ---
-title: Living-Room in Unity
+title: Bring the Living-Room to Unity.
 #subtitle: Welcome 👋 We know that first impressions are important, so we've populated your new site with some initial content to help you get familiar with everything in no time.
 
 # Summary for listings and search engines
-summary: Bring the living-room scene to Unity.
+#summary: Bring the living-room scene to Unity.
 
 # Link this post with a project
 projects: [livingroom-in-unity]
@@ -28,8 +28,8 @@ image:
   placement: 3
   preview_only: false
 
-authors:
-- Zihong Zhou
+#authors:
+#- Zihong Zhou
 
 tags:
 - Project
@@ -37,6 +37,7 @@ tags:
 categories:
 - Unity
 - Rendering
+- Digital Arts
 ---
 
 ## Notes
@@ -48,7 +49,7 @@ Ray tracing is an elegant algorithm used in computer graphics to synthesis reali
 It shoots tremendous rays to find intersection with geometries in the scene and shading with lights and tries its best to simulate the light transport process in nature.
 The algorithm is not so fast however and it is not unusual to spend hours to days rendering a single image for the complex scenes produced by artists in the movie industry.
 
-Rasterization on the other hand, represents a way to render in an efficient way, which is used ubiquitously in realtime rendering.
+Rasterization on the other hand, represents a way to render efficiently, which is used ubiquitously in realtime rendering.
 Thanks to the efforts of many graphics researchers and engineers for many years, realtime rendering could already produce some good-looking images nowadays.
 Consequently, in this project I'd like to find out how good it could be in a game engine.
 
@@ -71,7 +72,7 @@ Unity engine has several built-in solutions for achieving Global Illumination:
 *Update in 2021: Note that Enlighten is deprecated and we are suggested to use CPU or GPU-based Progressive Lightmapper instead.*
 {{% /callout %}}
 
-I attempted to use Enlighten in the first place and do not have a good experience since it is laborious to play with the parameters so as to reach my expectation.
+I attempted to use Enlighten in the first place and do not have a good experience since it is laborious to play with the parameters to reach my expectation.
 I then turned to CPU and GPU based Progressive Lightmapper for the job.
 Progressiveness indicates we could have a somewhat coarse preview immediately and it gradually gets refined as we wait.
 This is usually preferred by lots of artists since it saves time for fast iterations.
@@ -90,14 +91,14 @@ We could preview our loaded HDRI Sky in the scene as well by setting up the Volu
 
 {{< figure src="k1-volume.png" caption="Set up the HDRI Sky in Volume." numbered="false" >}}
 
-Remember we need to specifiy the sky in the **Lighting/Environment HDR**.
+Remember we need to specify the sky in the **Lighting/Environment HDR**.
 
 {{< figure src="k0-hdri.png" caption="Specify our sky in Lighting." numbered="false" >}}
 
 ## Cleanup the Scene
 The living-room scene is from [Benedikt Bitterli's Rendering Resources](https://benedikt-bitterli.me/resources/):
 
-{{< figure src="s1_about_the_scene.png" caption="The living room I chosed." numbered="false" >}}
+{{< figure src="s1_about_the_scene.png" caption="The living room I chose." numbered="false" >}}
 
 I first import all meshes (*.obj) into Maya and group the objects by materials according to the provided scene description file (.xml).
 This could reduce our time for authoring and assigning materials in Unity later.
@@ -113,13 +114,13 @@ After fixing all issues in the [last section](#cleanup-the-scene), it should wor
 
 However, there is an issue to be considered -- what is our scale of the scene?
 This is important since we have limited precision for representing decimal in computer science.
-For example, the intersection point may slightly below the surface and when it shoots a shadow ray to the light to find out whether it's blocked or not, it will be occluded by itself -- a phenomena known as *shadow acne*.
+For example, the intersection point may slightly below the surface and when it shoots a shadow ray to the light to find out whether it's blocked or not, it will be occluded by itself -- a phenomenon known as *shadow acne*.
 
-{{< figure src="shadow-acne.png" caption="Shadow acne artifacts due to the error of loating point. Image courtesy of Scratchpixel 2.0." numbered="false" >}}
+{{< figure src="shadow-acne.png" caption="Shadow acne artifacts due to the error of floating point. Image courtesy of Scratchpixel 2.0." numbered="false" >}}
 
-An idea is to offset the intersection pooint by epsilon, which should be related to the scale of the scene.
+An idea is to offset the intersection point by epsilon, which should be related to the scale of the scene.
 If our scene lives in a small world, 'a miss (ray epsilon in this context) is as good as a mile'!
-Our scale or units thus should chosed in a *consistent* way throughout the scene to avoid these annoying artifacts.
+Our scale or units thus should choose consistently throughout the scene to avoid these annoying artifacts.
 
 One of the simplest solutions is to compare the imported scene with the default primitive in Unity.
 A standard cube here has the length of 1 meter and I just scale our scene to make it match the scale -- a 5m\*10m*5m living room.
@@ -231,7 +232,7 @@ It looks kind of cool -- perhaps not in a sense of realism but in a artistic sty
 
 {{< figure src="../../project/example/featured.jpg" caption="Path traced reference image rendered by my **[Colvillea](https://hearwindsaying.github.io/project/example/)** renderer." numbered="false" >}}
 
-By comparing with the ground truth image from the ray tracing [sGT Image], we find that the glass seems to be weird and we lack all the nice occlusion from the objects.
+By comparing with the ground truth image from the ray tracing, we find that the glass seems to be weird and we lack all the nice occlusion from the objects.
 As for the user's experience, I think it requires artists to pay more attention to the stuff behind rendering.
 For example, we have to consider the resolution or padding for the lightmap UVs, tuning the baking parameters, fixing light leaking due to the lack of reflection probes etc.
 

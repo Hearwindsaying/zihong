@@ -2,9 +2,7 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "Living-Room in Unity"
-summary: "A course project work for Virtual Reality which explores Lightmapping techniques with the newest High-Definition Rendering Pipeline in Unity. 
-With prebaked global illumination using ray tracing methodology, it
-brings the Living-Room scene to the word-class game engine."
+summary: "A course project on Virtual Reality exploring Lightmapping techniques with the  High-Definition Rendering Pipeline in Unity."
 authors: []
 tags: 
  - Unity
@@ -14,7 +12,7 @@ categories: []
 date: "2019-11-01T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
-external_link: ""
+external_link: "https://hearwindsaying.github.io/post/render-the-livingroom-in-unity/"
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -26,11 +24,11 @@ image:
 
 # Custom links (optional).
 #   Uncomment and edit lines below to show custom links.
-# links:
-# - name: Follow
-#   url: https://twitter.com
-#   icon_pack: fab
-#   icon: twitter
+links:
+- icon: blogger
+  icon_pack: fab
+  name: Blog
+  url: https://hearwindsaying.github.io/post/render-the-livingroom-in-unity/
 
 url_code: ""
 url_pdf: ""

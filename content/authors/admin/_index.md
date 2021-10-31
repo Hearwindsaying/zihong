@@ -65,8 +65,11 @@ highlight_name: true
 
 ---
 
-I am a senior at South China Agricultural University.
-I am keen on realistic rendering, a way of coding the beauty of nature.
+I am a rendering engineer at 4D ShoeTech.
+
+I am strongly interested in computer graphics, especially in physically based rendering. 
+I attempt to learn and understand the principles behind natural phenomena appearing in the physical world. 
+I could then synthesize realistic images in a virtual world fabricated by math and code.
 
 Previously I worked on analytical area light integration for interests under the supervision of Dr. [Li-Yi Wei](https://liyiwei.org/).
 My research interests involve efficient sampling and integration for rendering application.
