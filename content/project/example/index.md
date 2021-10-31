@@ -96,13 +96,14 @@ Building **Colvillea** requires OptiX 6.0 (6.5 is preferred) and CUDA 9.0 or abo
 **Colvillea** currently builds on Windows only using [CMake](http://www.cmake.org/download/) and could be built using MSVC successfully. It's recommeded that create a separte directory in the same level folder as src folder. Note that you are required to use VS2015 or above targeted for 64-bit as CUDA_HOST_COMPILER in configuration step.
 For better layout to support interactive rendering, please put imgui.ini file to the same directory as colvillea.vcxproj.
 
-## Gallery
-{{< figure src="cornell.png" caption="Settings for lightmap baking." numbered="true" >}}
-{{< figure src="cornellbox_test.jpg" caption="Settings for lightmap baking." numbered="true" >}}
+## Selected Images
+
+{{< gallery album="gallery" >}}
+
 
 ## References
-[Nvidia OptiX](https://developer.nvidia.com/optix)
+ - [NVIDIA OptiX](https://developer.nvidia.com/optix)
 
-[PBRT](https://github.com/mmp/pbrt-v3)
+ - [PBRT](https://github.com/mmp/pbrt-v3)
 
-[Mitsuba](https://github.com/mitsuba-renderer/mitsuba)
+ - [Mitsuba](https://github.com/mitsuba-renderer/mitsuba)
