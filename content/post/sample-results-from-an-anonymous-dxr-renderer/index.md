@@ -73,11 +73,11 @@ Here is how it looks like from the renderer:
 
 {{< figure src="4.png" caption="The chessboard scene rendered with 8192spp in 8min45s. Runs in 18fps or 55 ms for 1 iteration (1spp) on a RTX 2060 (minimum GPU requirements for running DXR API). Scene credits: [https://davzeppelin.gumroad.com/l/QlHKc](https://davzeppelin.gumroad.com/l/QlHKc)." numbered="true" >}}
 
-Interestly, I have set Fresnel to 1.0 for specular lobe in Disney BRDF for debugging purpose and just forgetted to turn off before rendering the Chess scene and got a funny bug:
+Accidentally, I have set Fresnel to 1.0 for specular lobe in Disney BRDF for debugging purpose and just forgot to turn off before rendering the Chess scene and got a funny bug:
 {{< figure src="stinger.png" caption="An interesting result due to a bug." numbered="true" >}}
 
-Besides its overbrightness, featuring strong specular reflections and blurring out diffuse details, another subtle difference compared to []() is now I cannot tell the opponent's chess pieces from ours! :)
-I like rendering because sometimes I could get these magical images for my bugs (instead of getting crashes and nothing in other applications).
+Besides its over brightness, featuring strong specular reflections and blurring out diffuse details, because of the wrong shading I cannot tell the opponent's chess pieces from ours! :)
+I like rendering since sometimes I get these magical images for my bugs (instead of getting crashes and nothing in other applications).
 
 There is another scene with more complicated geometries:
 
@@ -87,7 +87,7 @@ Disney BRDF is used for all materials in the two scenes and several hidden quadl
 I also used Dr. Laurent Belcour's [Screen Space Blue Noise Error Diffusion Sampler with XOR Scrambled Sobol sequence](https://belcour.github.io/blog/research/publication/2021/06/24/sampling_bluenoise_sig21.html) for high quality samples pattern.
 Finally, Intel's OpenImageDenoiser is used for cleaning up noises left in low sample counts.
 
-## Machine Learning Based Denoiser -- A Saviour
+## Machine Learning Based Denoiser -- A Savior
 Path tracing integrator is easy to code, but it still requires tremendous effort to reach a fully converged image without noises.
 There are quite a few denoising algorithms and open source implementations available.
 Check out [Alain Galvan's blog](https://alain.xyz/blog/ray-tracing-denoising) for a good overview of ways to denoise a path tracer.
@@ -98,11 +98,11 @@ Due to its simplicity for integration, I started with OIDN.
 OIDN is built and trained with Convolutional Neural Network (CNN).
 Outside the blackbox, it just works like a filter so it could be put into the postprocessing stage.
 Feed the OIDN with noisy ray tracing outputs and auxiliary buffers (albedo, normal etc.) from our AOV outputs, it gives us a noise free result in a short time.
-Well I mean a short time but it still needs some noticable time -- 2s for 2K resolution on a i7-10700K cpu.
+Well I mean a short time but it still needs some noticeable time -- 2s for 2K resolution on my i7-10700K CPU.
 
-This DXR ray tracer is designed to be interactive and progressive, but 2s could really block the main/UI thread and make it irresponsive.
+This DXR ray tracer is designed to be interactive and progressive, but 2s could really block the main/UI thread and make it unresponsive.
 So I move the denoising pass to the background thread and run it from time to time asynchronously.
-The idea is to progressively accumulate a few samples, say 64 from a well designed Sobol sampler, and run the denoiser in the background.
+The idea is to progressively accumulate a few samples, say 64 from a well-designed Sobol sampler, and run the denoiser in the background.
 Once it is done, show this denoised image in the viewport and keep ray tracing.
 After running for a while, run the denoiser again and update the denoised image.
 This makes sense since we cannot easily spot the difference between denoising a 64spp input and 65spp input, but we do for the 64spp input and 90spp input.
@@ -153,7 +153,7 @@ And a more easily noticeable verification is using ImageDiff to the ground truth
 </div>
 
 
-## Machine Learning Based Denoiser -- A Saviour If With Our Help
+## Machine Learning Based Denoiser -- A Savior If With Our Help
 I am kind of appalled by the advertisements of [Intel's OIDN gallery](https://www.openimagedenoise.org/gallery.html) and after trying out myself, it looks like a lifesaver to us!
 Unfortunately, this is not the whole story.
 I cannot just forget all the sophisticated algorithms invented by diligent graphics researchers and solely focus on hoping ML denoiser improve my renderings given some 'arbitrary' inputs.
