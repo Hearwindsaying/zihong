@@ -39,3 +39,8 @@
   name = "CV"
   url = "media/resume.pdf"
   weight = 70
+
+[[main]]
+  name = "Portfolio"
+  url = "portfolio/"
+  weight = 80
