@@ -22,20 +22,29 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: Rendering Engineer
+  - title: Rendering Engineer (Intern)
     company: 4D ShoeTech
     company_logo: logo
     company_url: 'https://4dshoetech.com/'
     location: Guangzhou
     date_start: '2020-09-01'
-    date_end: ''
-    description: |4-
-        * Worked on in-house renderer designed for footware manufacturing. Implemented Eric Heitz's Linearly Transform Cosine, a technique for realtime shading polygonal area lights.
+    date_end: '2021-06-30'
+    description: |3-
+        * Worked on in-house real-time renderer designed for footwear manufacturing. Implemented Eric Heitz's Linearly Transform Cosine method for real-time shading polygonal area lights.
 
-        * Several bug fixes to offline renderer SDK.
+        * Reported and fixed several bugs of the offline renderer SDK.
         
         * Integrated a brand-new DirectX 12 renderer backend to the existing RHI (Render Harware Interface), being compatible to the current rendering pipeline and APIs. 
 
-        * Implemented a new physically based reference ray tracer with high visual fidelity based on DirectX 12 backend and DXR (DirectX Ray Tracing) API.
-
+  - title: Rendering Engineer (Full-time)
+    company: 4D ShoeTech
+    company_logo: logo
+    company_url: 'https://4dshoetech.com/'
+    location: Guangzhou
+    date_start: '2021-07-01'
+    date_end: ''
+    description: |2-
+        * Launched a new project on reference path tracer with high visual fidelity based on DirectX 12 backend and DXR (DirectX Ray Tracing) API.
+        
+        * Integrated NVIDIA's Realtime Denoiser and Intel's OpenImageDenoiser to the post-processing pipeline of the path tracer.
 ---

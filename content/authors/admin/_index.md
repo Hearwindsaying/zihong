@@ -75,4 +75,6 @@ Previously I worked on analytical area light integration for interests under the
 My research interests involve efficient sampling and integration for rendering application.
 
 {{< icon name="download" pack="fas" >}} Download my
-{{< staticref "media/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< staticref "media/resume.pdf" "newtab" >}}resumé{{< /staticref >}} and
+checkout my
+{{< staticref "portfolioWeb/index.html" "newtab" >}}portfolio{{< /staticref >}}.
