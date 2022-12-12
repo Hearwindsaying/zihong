@@ -19,7 +19,7 @@ links:
 - icon: github
   icon_pack: fab
   name: Code
-  url: https://github.com/Hearwindsaying/Colvillea
+  url: https://github.com/Hearwindsaying/Colvillea-archive
 
 url_code: ""
 url_pdf: ""
@@ -41,6 +41,11 @@ url_video: ""
 
 ## Overview
 **Colvillea** is a physically based global illumination renderer running on GPU. It relies on [NVIDIA's OptiX](https://developer.nvidia.com/optix) to achieve parallelism by leveraging GPU resources, resulting in high performance ray tracing rendering.
+
+{{% callout note %}}
+This project is archived and I am working on a new version of **Colvillea** that has much better performance thanks to OptiX 7 and wavefront path tracing.
+{{% /callout %}}
+
 
 ## Motivation
 Here are some motivations and objectives of building Colvillea:
@@ -67,7 +72,7 @@ Here are some motivations and objectives of building Colvillea:
  - Halton QMC Sampler (Fast Random Permutation)    
  - Sobol QMC Sampler
 
-### Filter (Progressive)
+### Filter
  - Box filter
  - Gaussian filter
 

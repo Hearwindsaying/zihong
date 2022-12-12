@@ -19,15 +19,19 @@ role: Have fun. Be awesome.
 # Interests to show in About widget
 interests:
 - Physically Based Rendering
-- Area Light Integration
 - Appearance Modeling
 
 # Education to show in About widget
 education:
   courses:
+  - course: M.S. in Computer Science, with concentration in Digital Arts
+    institution: Dartmouth College
+    year: 2022-2024
+
   - course: BSc in Computer Science
     institution: South China Agricultural University
     year: 2021
+  
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
@@ -65,7 +69,7 @@ highlight_name: true
 
 ---
 
-I am a rendering engineer at 4D ShoeTech.
+I am a master student in computer science at Dartmouth College.
 
 I am strongly interested in computer graphics, especially in physically based rendering. 
 I attempt to learn and understand the principles behind natural phenomena appearing in the physical world. 

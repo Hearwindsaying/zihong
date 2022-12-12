@@ -23,9 +23,9 @@ date_format: Jan 2006
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
   - title: Rendering Engineer (Intern)
-    company: 4D ShoeTech
+    company: Revobit
     company_logo: logo
-    company_url: 'https://4dshoetech.com/'
+    company_url: 'https://www.revobit.ai/'
     location: Guangzhou
     date_start: '2020-09-01'
     date_end: '2021-06-30'
@@ -37,12 +37,12 @@ experience:
         * Integrated a brand-new DirectX 12 renderer backend to the existing RHI (Render Harware Interface), being compatible to the current rendering pipeline and APIs. 
 
   - title: Rendering Engineer (Full-time)
-    company: 4D ShoeTech
+    company: Revobit
     company_logo: logo
-    company_url: 'https://4dshoetech.com/'
+    company_url: 'https://www.revobit.ai/'
     location: Guangzhou
     date_start: '2021-07-01'
-    date_end: ''
+    date_end: '2022-08-20'
     description: |2-
         * Launched a new project on reference path tracer with high visual fidelity based on DirectX 12 backend and DXR (DirectX Ray Tracing) API.
         
