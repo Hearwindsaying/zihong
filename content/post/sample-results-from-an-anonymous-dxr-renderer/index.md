@@ -13,7 +13,6 @@ featured: true
 draft: false
 
 categories:
-- Coding
 - Rendering
 
 # Featured image

@@ -6,6 +6,9 @@ authors: []
 tags:
  - pbrt-v4
  - GPU Ray Tracing
+categories:
+ - GPU Ray Tracing
+ - pbrt-v4
 date: "2022-05-10T00:00:00Z"
 external_link: "https://hearwindsaying.github.io/media/pbrt-v4-notes.html"
 

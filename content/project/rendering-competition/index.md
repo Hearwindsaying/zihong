@@ -2,7 +2,7 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: "Rendering Competition FA22"
-summary: "Final report of the rendering competition for CS87/287: Rendering Algorithms at Dartmouth College. We won the grand prize!"
+summary: "Final report of the rendering competition for CS87/287: Rendering Algorithms at Dartmouth College. **We won the grand prize!**"
 authors: [Zihong Zhou and Yunquan Gu]
 tags: 
  - Physically based rendering
