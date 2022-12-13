@@ -11,7 +11,7 @@ categories: []
 date: "2022-12-12T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
-external_link: "report.html"
+external_link: "https://hearwindsaying.github.io/project/rendering-competition/report.html"
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -27,7 +27,7 @@ links:
 - icon: blogger
   icon_pack: fab
   name: Blog
-  url: report.html
+  url: https://hearwindsaying.github.io/project/rendering-competition/report.html
 
 url_code: ""
 url_pdf: ""
